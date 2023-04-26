@@ -1,5 +1,6 @@
 import 'package:debasmita_assignment/portfolio_responsive.dart';
 import 'package:debasmita_assignment/responsive_screens/mobile_screen.dart';
+import 'package:debasmita_assignment/responsive_screens/tablet_screen.dart';
 import 'package:debasmita_assignment/view/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -22,9 +23,7 @@ class MyApp extends StatelessWidget {
       ),
       home: Responsive(
         mobile: MobileScreen(),
-        tablet: Scaffold(
-          body: Center(child: Text("Tablet view"),),
-        ),
+        tablet: TabletScreen(),
         desktop: HomeScreen(),
       ),
     );

@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import '../widgets/about_container.dart';
 import '../widgets/header_text.dart';
 import '../widgets/name_widget.dart';
+import '../widgets/portfolio_widget.dart';
 import '../widgets/work_experience.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -50,21 +51,36 @@ class _HomeScreenState extends State<HomeScreen> {
                                 children: [
                                   Expanded(
                                       flex: 1,
-                                      child: const WorkExperience(firstLine: '2+', secondLine: "Your Experience", bgColor: Colors.teal, textColor: Colors.white)),
+                                      child: WorkExperience(
+                                        firstLine: '2+',
+                                        secondLine: "Your Experience",
+                                        bgColor: Colors.teal,
+                                        textColor: Colors.white,
+                                      )),
                                   SizedBox(
                                     width: MediaQuery.of(context).size.width *
                                         0.010,
                                   ),
                                   Expanded(
                                       flex: 1,
-                                      child: const WorkExperience(firstLine: '54+', secondLine: "Handled Project", bgColor: Colors.amber, textColor: Colors.black)),
+                                      child: WorkExperience(
+                                        firstLine: '54+',
+                                        secondLine: "Handled Project",
+                                        bgColor: Colors.amber,
+                                        textColor: Colors.black,
+                                      )),
                                   SizedBox(
                                     width: MediaQuery.of(context).size.width *
                                         0.010,
                                   ),
                                   Expanded(
                                       flex: 1,
-                                      child: const WorkExperience(firstLine: '40+', secondLine: "Clients", bgColor: Colors.pinkAccent, textColor: Colors.white)),
+                                      child: WorkExperience(
+                                        firstLine: '40+',
+                                        secondLine: "Clients",
+                                        bgColor: Colors.pinkAccent,
+                                        textColor: Colors.white,
+                                      )),
                                 ],
                               ),
                             ),
@@ -163,14 +179,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                                     .height *
                                                 0.01,
                                           ),
+
                                           ///Social links
                                           Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
                                             children: const [
                                               SocialLinksWidget(
-                                                  imgPath:
-                                                      ImagePaths.linkedinLogo),
+                                                imgPath:
+                                                    ImagePaths.linkedinLogo,
+                                              ),
                                               SocialLinksWidget(
                                                   imgPath:
                                                       ImagePaths.internetLogo),
@@ -207,11 +225,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   Container(
                     decoration: BoxDecoration(
                         color: Colors.white10,
-                        borderRadius: BorderRadius.circular(10)),
+                        borderRadius: BorderRadius.circular(15)),
                     height: MediaQuery.of(context).size.height * 0.36,
                     width: MediaQuery.of(context).size.width * 0.6,
                     child: Padding(
-                      padding: const EdgeInsets.all(15),
+                      padding:
+                          const EdgeInsets.only(left: 20, right: 20, top: 15),
                       child: Column(
                         children: [
                           Row(
@@ -226,58 +245,51 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 17,
                           ),
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Stack(
                                 children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(15),
-                                    child: Image.network(
-                                      "https://images.pexels.com/photos/850359/pexels-photo-850359.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-                                      width: MediaQuery.of(context).size.width *
-                                          0.19,
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              0.27,
-                                      fit: BoxFit.cover,
-                                    ),
+                                  PortfolioWidget(
+                                    images: ImagePaths.porfolioImage,
+                                    width: MediaQuery.of(context).size.width *
+                                        0.18,
+                                    height: MediaQuery.of(context).size.height *
+                                        0.22,
                                   ),
                                   const Positioned(
                                       right: 10,
                                       left: 7,
                                       top: 65,
-                                      child: Center(child: Text("Read More")))
+                                      child: Center(
+                                          child: Text(
+                                        "Read More",
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w800,
+                                            fontSize: 22),
+                                      )))
                                 ],
                               ),
                               const SizedBox(
                                 width: 5,
                               ),
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(15),
-                                child: Image.network(
-                                  "https://images.pexels.com/photos/850359/pexels-photo-850359.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.18,
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.27,
-                                  fit: BoxFit.cover,
-                                ),
+                              PortfolioWidget(
+                                images: ImagePaths.porfolioImage,
+                                width: MediaQuery.of(context).size.width * 0.18,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.22,
                               ),
                               const SizedBox(
                                 width: 5,
                               ),
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(15),
-                                child: Image.network(
-                                  "https://images.pexels.com/photos/850359/pexels-photo-850359.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.19,
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.27,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
+                              PortfolioWidget(
+                                images: ImagePaths.porfolioImage,
+                                width: MediaQuery.of(context).size.width * 0.18,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.22,
+                              )
                             ],
-                          )
+                          ),
                         ],
                       ),
                     ),

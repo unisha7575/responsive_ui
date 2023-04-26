@@ -4,4 +4,5 @@ class ImagePaths {
   static const String instagramLogo = 'assets/images/instagram.png';
   static const String internetLogo = 'assets/images/internet.png';
   static const String basedInBGImage = "https://www.defensehere.com/img/2022/05/Omnispace-Spark-2-satellite-successfully-launches-into-orbit-e1653660577196.jpg";
+  static const String porfolioImage = "https://thumbs.dreamstime.com/b/spring-flowers-blue-crocuses-drops-water-backgro-background-tracks-rain-113784722.jpg";
 }

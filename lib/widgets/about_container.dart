@@ -7,7 +7,7 @@ class AboutContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(15),
         color: Colors.white10,
       ),
       height: MediaQuery.of(context).size.height * 0.36,
@@ -22,7 +22,8 @@ class AboutContainer extends StatelessWidget {
             ),
             const Padding(
               padding: EdgeInsets.only(top: 15),
-              child: Text("A resume, sometimes spelled resume, also called a curriculum vitae, is a document created and used by a person to present their background, skills, and accomplishments. Resume can be used for a variety of reasons, but most often they are used to secure new employment."),
+              child: Text(
+                  "A resume, sometimes spelled resume, also called a curriculum vitae, is a document created and used by a person to present their background, skills, and accomplishments. Resume can be used for a variety of reasons, but most often they are used to secure new employment."),
             )
           ],
         ),

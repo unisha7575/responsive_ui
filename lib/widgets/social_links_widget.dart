@@ -8,11 +8,11 @@ class SocialLinksWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 15.0, ),
       child: Image.asset(
         imgPath,
         height: 40,
-        width: 20,
+        width: 30,
         // color: Colors.white,
       ),
     );
