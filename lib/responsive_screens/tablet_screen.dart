@@ -117,11 +117,6 @@ class TabletScreen extends StatelessWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  SizedBox(
-                                    height: MediaQuery.of(context).size.height *
-                                        0.01,
-                                  ),
-
                                   const NameWidget(),
                                   SizedBox(
                                     height: MediaQuery.of(context).size.height *
