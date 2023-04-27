@@ -126,7 +126,7 @@ class _DesktopScreenState extends State<DesktopScreen> {
                               child: Row(
                                 children: [
                                   Text(allData['resume']),
-                                  Spacer(),
+                                  const Spacer(),
                                   const Icon(Icons.menu),
                                 ],
                               ),
@@ -224,6 +224,7 @@ class _DesktopScreenState extends State<DesktopScreen> {
                                             ),
                                           ],
                                         ),
+
                                       ],
                                     ),
                                   ),
@@ -260,7 +261,7 @@ class _DesktopScreenState extends State<DesktopScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(allData['portfolio']),
-                              Spacer(),
+                              const Spacer(),
                               Text(allData['portfolioText']),
                             ],
                           ),

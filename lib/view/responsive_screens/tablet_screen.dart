@@ -122,7 +122,7 @@ class TabletScreen extends StatelessWidget {
                                   height:
                                       MediaQuery.of(context).size.height * 0.01,
                                 ),
-
+                                const Spacer(),
                                 ///Social links
                                 Row(
                                   mainAxisAlignment:
@@ -169,6 +169,10 @@ class TabletScreen extends StatelessWidget {
                                       ),
                                     ),
                                   ],
+                                ),
+                                SizedBox(
+                                  height:
+                                  MediaQuery.of(context).size.height * 0.05,
                                 ),
                               ],
                             ),

@@ -1,3 +1,4 @@
+import 'package:debasmita_assignment/utils/portfolio_responsive.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/json_data_file.dart';
@@ -14,7 +15,7 @@ class AboutContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
         color: Colors.white10,
       ),
-      height: MediaQuery.of(context).size.height * 0.36,
+      height: (Responsive.isMobile(context) || Responsive.isTablet(context))?null :MediaQuery.of(context).size.height * 0.36,
       width: MediaQuery.of(context).size.width * 0.37,
       child: Padding(
         padding: const EdgeInsets.all(15),
@@ -22,10 +23,10 @@ class AboutContainer extends StatelessWidget {
           children: [
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children:  [Text(allData['resume']), Spacer(), Text(allData['resume'])],
+              children:  [Text(allData['resumeAbout']), const Spacer(), Text(allData['resume'])],
             ),
              Padding(
-              padding: EdgeInsets.only(top: 15),
+              padding: const EdgeInsets.only(top: 15),
               child: Text(
                   allData['resumeAboutText']
             )

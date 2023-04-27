@@ -4,7 +4,7 @@ Map<String, dynamic> allData = {
   'header': "Bringing  Your Ideas To  Life  Through UI  Design",
   "buttonText": "Hire me",
   "workExperience": {
-    'experienceText': "Your Experience",
+    'experienceText': "Years Experience",
     'experienceYear': "2+",
     "project": "Handled Project",
     "projectNo": "54+",
