@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../constants/json_data_file.dart';
+
 class HeaderText extends StatelessWidget {
   const HeaderText({Key? key}) : super(key: key);
 
@@ -11,11 +13,11 @@ class HeaderText extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Padding(
-            padding: EdgeInsets.only(left: 15),
+           Padding(
+            padding: const EdgeInsets.only(left: 15),
             child: Text(
-              "Bringing  Your Ideas To  Life  Through UI  Design",
-              style: TextStyle(fontSize: 50, fontWeight: FontWeight.w800),
+              allData['header'],
+              style: const TextStyle(fontSize: 50, fontWeight: FontWeight.w800),
             ),
           ),
           Padding(
@@ -36,9 +38,9 @@ class HeaderText extends StatelessWidget {
                   onPressed: () {},
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
-                    children: const [
-                      Text("Hire Me"),
-                      Icon(
+                    children:  [
+                      Text(allData['buttonText']),
+                      const Icon(
                         Icons.back_hand,
                         size: 15,
                       )

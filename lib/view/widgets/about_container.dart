@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../../constants/json_data_file.dart';
+
+
+
 class AboutContainer extends StatelessWidget {
   const AboutContainer({Key? key}) : super(key: key);
 
@@ -18,14 +22,14 @@ class AboutContainer extends StatelessWidget {
           children: [
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [Text("About"), Spacer(), Text("Resume")],
+              children:  [Text(allData['resume']), Spacer(), Text(allData['resume'])],
             ),
-            const Padding(
+             Padding(
               padding: EdgeInsets.only(top: 15),
               child: Text(
-                  "A resume, sometimes spelled resume, also called a curriculum vitae, is a document created and used by a person to present their background, skills, and accomplishments. Resume can be used for a variety of reasons, but most often they are used to secure new employment."),
+                  allData['resumeAboutText']
             )
-          ],
+             ) ],
         ),
       ),
     );

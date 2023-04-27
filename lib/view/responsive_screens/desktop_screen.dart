@@ -1,22 +1,27 @@
-import 'package:debasmita_assignment/image_paths.dart';
-import 'package:debasmita_assignment/widgets/based_in_widget.dart';
-import 'package:debasmita_assignment/widgets/social_links_widget.dart';
+import 'package:debasmita_assignment/constants/json_data_file.dart';
+import 'package:debasmita_assignment/utils/my_utils.dart';
 import 'package:flutter/material.dart';
 
+import '../../constants/web_urls.dart';
 import '../widgets/about_container.dart';
+import '../widgets/based_in_widget.dart';
 import '../widgets/header_text.dart';
 import '../widgets/name_widget.dart';
 import '../widgets/portfolio_widget.dart';
+import '../widgets/social_links_widget.dart';
 import '../widgets/work_experience.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+
+class DesktopScreen extends StatefulWidget {
+
+  const DesktopScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<DesktopScreen> createState() => _DesktopScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _DesktopScreenState extends State<DesktopScreen> {
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -52,8 +57,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                   Expanded(
                                       flex: 1,
                                       child: WorkExperience(
-                                        firstLine: '2+',
-                                        secondLine: "Your Experience",
+                                        firstLine: allData['workExperience']
+                                            ['experienceYear'],
+                                        secondLine: allData['workExperience']
+                                            ['experienceText'],
                                         bgColor: Colors.teal,
                                         textColor: Colors.white,
                                       )),
@@ -63,8 +70,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                   Expanded(
                                       flex: 1,
                                       child: WorkExperience(
-                                        firstLine: '54+',
-                                        secondLine: "Handled Project",
+                                        firstLine: allData['workExperience']
+                                            ['projectNo'],
+                                        secondLine: allData['workExperience']
+                                            ['project'],
                                         bgColor: Colors.amber,
                                         textColor: Colors.black,
                                       )),
@@ -75,8 +84,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                   Expanded(
                                       flex: 1,
                                       child: WorkExperience(
-                                        firstLine: '40+',
-                                        secondLine: "Clients",
+                                        firstLine: allData['workExperience']
+                                            ['clientsNo'],
+                                        secondLine: allData['workExperience']
+                                            ['clients'],
                                         bgColor: Colors.pinkAccent,
                                         textColor: Colors.white,
                                       )),
@@ -113,10 +124,10 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Padding(
                               padding: const EdgeInsets.all(15),
                               child: Row(
-                                children: const [
-                                  Text("Bim Graph"),
+                                children: [
+                                  Text(allData['resume']),
                                   Spacer(),
-                                  Icon(Icons.menu),
+                                  const Icon(Icons.menu),
                                 ],
                               ),
                             ),
@@ -133,7 +144,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(16),
                                     child: Image.network(
-                                      "https://images.pexels.com/photos/850359/pexels-photo-850359.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+                                      allData['bimaSaktiImage'],
                                       width: MediaQuery.of(context).size.width *
                                           0.244,
                                       height:
@@ -170,19 +181,47 @@ class _HomeScreenState extends State<HomeScreen> {
                                         Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
-                                          children: const [
-                                            SocialLinksWidget(
-                                              imgPath: ImagePaths.linkedinLogo,
+                                          children: [
+                                            GestureDetector(
+                                              onTap: () async {
+                                                await MyUtils().urlLauncher(WebUrls.twitterUrl);//_launchUrl(_url);
+                                              },
+                                              child: SocialLinksWidget(
+                                                imgPath:
+                                                    allData['socialLinksImage']
+                                                        ['twitterLogo'],
+                                              ),
                                             ),
-                                            SocialLinksWidget(
+                                            InkWell(
+                                              onTap: () async {
+                                                await MyUtils().urlLauncher(WebUrls.linkedinUrl);//_launchUrl(_url);
+                                              },
+                                              child: SocialLinksWidget(
                                                 imgPath:
-                                                    ImagePaths.internetLogo),
-                                            SocialLinksWidget(
+                                                    allData['socialLinksImage']
+                                                        ['linkedinLogo'],
+                                              ),
+                                            ),
+                                            InkWell(
+                                              onTap: () async {
+                                                await MyUtils().urlLauncher(WebUrls.instaUrl);//_launchUrl(_url);
+                                              },
+                                              child: SocialLinksWidget(
                                                 imgPath:
-                                                    ImagePaths.twitterLogo),
-                                            SocialLinksWidget(
+                                                    allData['socialLinksImage']
+                                                        ['instagramLogo'],
+                                              ),
+                                            ),
+                                            InkWell(
+                                              onTap: () async {
+                                                await MyUtils().urlLauncher(WebUrls.youTubeUrl);//_launchUrl(_url);
+                                              },
+                                              child: SocialLinksWidget(
                                                 imgPath:
-                                                    ImagePaths.instagramLogo),
+                                                    allData['socialLinksImage']
+                                                        ['internetLogo'],
+                                              ),
+                                            ),
                                           ],
                                         ),
                                       ],
@@ -219,10 +258,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
-                              Text("UI Portfolio"),
+                            children: [
+                              Text(allData['portfolio']),
                               Spacer(),
-                              Text("See All"),
+                              Text(allData['portfolioText']),
                             ],
                           ),
                           const SizedBox(
@@ -234,7 +273,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               Stack(
                                 children: [
                                   PortfolioWidget(
-                                    images: ImagePaths.porfolioImage,
+                                    images: allData['portfolioImage'],
                                     width: MediaQuery.of(context).size.width *
                                         0.18,
                                     height: MediaQuery.of(context).size.height *
@@ -258,7 +297,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 width: 5,
                               ),
                               PortfolioWidget(
-                                images: ImagePaths.porfolioImage,
+                                images: allData['portfolioImage'],
                                 width: MediaQuery.of(context).size.width * 0.18,
                                 height:
                                     MediaQuery.of(context).size.height * 0.22,
@@ -267,7 +306,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 width: 5,
                               ),
                               PortfolioWidget(
-                                images: ImagePaths.porfolioImage,
+                                images: allData['portfolioImage'],
                                 width: MediaQuery.of(context).size.width * 0.18,
                                 height:
                                     MediaQuery.of(context).size.height * 0.22,
@@ -290,4 +329,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
+
 }

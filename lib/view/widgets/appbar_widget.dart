@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../portfolio_responsive.dart';
+import '../../utils/portfolio_responsive.dart';
+
 
 class AppbarWidget extends StatelessWidget {
   const AppbarWidget({Key? key}) : super(key: key);

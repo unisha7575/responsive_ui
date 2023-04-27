@@ -1,4 +1,5 @@
-import 'package:debasmita_assignment/portfolio_responsive.dart';
+import 'package:debasmita_assignment/constants/json_data_file.dart';
+import 'package:debasmita_assignment/utils/portfolio_responsive.dart';
 import 'package:flutter/material.dart';
 
 class NameWidget extends StatelessWidget {
@@ -16,7 +17,7 @@ class NameWidget extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(15),
         child: Row(
-          children: const [Text("Name:"), Spacer(), Text("Bima Sakti")],
+          children:  [Text(allData['name']), Spacer(), Text(allData['nameText'])],
         ),
       ),
     );

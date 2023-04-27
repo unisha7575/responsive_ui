@@ -1,4 +1,4 @@
-import 'package:debasmita_assignment/portfolio_responsive.dart';
+import 'package:debasmita_assignment/utils/portfolio_responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 

@@ -1,15 +1,19 @@
-import 'package:debasmita_assignment/portfolio_responsive.dart';
-import 'package:debasmita_assignment/widgets/about_container.dart';
-import 'package:debasmita_assignment/widgets/appbar_widget.dart';
-import 'package:debasmita_assignment/widgets/based_in_widget.dart';
-import 'package:debasmita_assignment/widgets/header_text.dart';
-import 'package:debasmita_assignment/widgets/name_widget.dart';
-import 'package:debasmita_assignment/widgets/portfolio_widget.dart';
-import 'package:debasmita_assignment/widgets/social_links_widget.dart';
-import 'package:debasmita_assignment/widgets/work_experience.dart';
+import 'package:debasmita_assignment/constants/web_urls.dart';
+import 'package:debasmita_assignment/utils/portfolio_responsive.dart';
+
 import 'package:flutter/material.dart';
 
-import '../image_paths.dart';
+import '../../constants/json_data_file.dart';
+import '../../utils/my_utils.dart';
+import '../widgets/about_container.dart';
+import '../widgets/appbar_widget.dart';
+import '../widgets/based_in_widget.dart';
+import '../widgets/header_text.dart';
+import '../widgets/name_widget.dart';
+import '../widgets/portfolio_widget.dart';
+import '../widgets/social_links_widget.dart';
+import '../widgets/work_experience.dart';
+
 
 class MobileScreen extends StatelessWidget {
   const MobileScreen({Key? key}) : super(key: key);
@@ -36,8 +40,8 @@ class MobileScreen extends StatelessWidget {
                     height: 10,
                   ),
                   WorkExperience(
-                    firstLine: '2+',
-                    secondLine: "Your Experience",
+                    firstLine: allData['workExperience']['experienceYear'],
+                    secondLine: allData['workExperience']['experienceText'],
                     bgColor: Colors.teal,
                     textColor: Colors.white,
                   ),
@@ -45,16 +49,16 @@ class MobileScreen extends StatelessWidget {
                     height: 10,
                   ),
                   WorkExperience(
-                      firstLine: '54+',
-                      secondLine: "Handled Project",
+                      firstLine: allData['workExperience']['projectNo'],
+                      secondLine: allData['workExperience']['project'],
                       bgColor: Colors.amber,
                       textColor: Colors.black),
                   const SizedBox(
                     height: 10,
                   ),
                   WorkExperience(
-                      firstLine: '40+',
-                      secondLine: "Clients",
+                      firstLine:allData['workExperience']['clientsNo'],
+                      secondLine: allData['workExperience']['clients'],
                       bgColor: Colors.pinkAccent,
                       textColor: Colors.white),
                   const SizedBox(
@@ -74,7 +78,8 @@ class MobileScreen extends StatelessWidget {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(15),
                     child: Image.network(
-                      "https://images.pexels.com/photos/850359/pexels-photo-850359.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+                        allData
+                        ['bimaSaktiImage'],
                       width: Responsive.isDesktop(context)
                           ? MediaQuery.of(context).size.width * 0.244
                           : MediaQuery.of(context).size.width,
@@ -106,13 +111,41 @@ class MobileScreen extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
-                          SocialLinksWidget(
-                            imgPath: ImagePaths.linkedinLogo,
+                        children:  [
+
+                          InkWell(
+                            onTap: ()async{
+                            await MyUtils().urlLauncher (WebUrls.twitterUrl);
+                            },
+                            child: SocialLinksWidget(
+                              imgPath:  allData['socialLinksImage']
+                              ['twitterLogo'],),
                           ),
-                          SocialLinksWidget(imgPath: ImagePaths.internetLogo),
-                          SocialLinksWidget(imgPath: ImagePaths.twitterLogo),
-                          SocialLinksWidget(imgPath: ImagePaths.instagramLogo),
+                    InkWell(
+                      onTap: ()async{
+                        await MyUtils().urlLauncher (WebUrls.linkedinUrl);
+                      },
+                      child:
+                          SocialLinksWidget(
+                            imgPath:
+                            allData['socialLinksImage']
+                            ['linkedinLogo'],),),
+                          InkWell(
+                            onTap: () async {
+                              await MyUtils().urlLauncher(WebUrls.instaUrl);
+                            },
+                            child: SocialLinksWidget(
+                            imgPath: allData['socialLinksImage']
+                            ['instagramLogo'],
+                          ),),
+                    InkWell(
+                      onTap: ()async{
+                        await MyUtils().urlLauncher (WebUrls.youTubeUrl);
+                      },
+                      child:
+                          SocialLinksWidget(
+                            imgPath: allData['socialLinksImage']
+                            ['internetLogo'],),),
                         ],
                       ),
                     ),
@@ -133,10 +166,10 @@ class MobileScreen extends StatelessWidget {
                               left: 15, right: 15, top: 15, bottom: 5),
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
-                              Text("UI Portfolio"),
+                            children:  [
+                              Text(allData['portfolio']),
                               Spacer(),
-                              Text("See All"),
+                              Text(allData['portfolioText']),
                             ],
                           ),
                         ),
@@ -146,7 +179,7 @@ class MobileScreen extends StatelessWidget {
                             Stack(
                               children: [
                                 PortfolioWidget(
-                                  images: ImagePaths.porfolioImage,
+                                  images: allData['portfolioImage'],
                                   width:
                                       MediaQuery.of(context).size.width * 0.28,
                                   height:
@@ -170,7 +203,7 @@ class MobileScreen extends StatelessWidget {
                               width: 5,
                             ),
                             PortfolioWidget(
-                              images: ImagePaths.porfolioImage,
+                              images: allData['portfolioImage'],
                               width: MediaQuery.of(context).size.width * 0.28,
                               height: MediaQuery.of(context).size.height * 0.18,
                             ),
@@ -178,7 +211,7 @@ class MobileScreen extends StatelessWidget {
                               width: 5,
                             ),
                             PortfolioWidget(
-                              images: ImagePaths.porfolioImage,
+                              images: allData['portfolioImage'],
                               width: MediaQuery.of(context).size.width * 0.28,
                               height: MediaQuery.of(context).size.height * 0.18,
                             )
