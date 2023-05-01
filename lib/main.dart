@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
         primaryColor: Colors.black,
-        backgroundColor: Colors.black
+        backgroundColor: Colors.black,
       ),
       home: const Responsive(
         mobile: MobileScreen(),
