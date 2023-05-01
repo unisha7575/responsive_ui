@@ -3,7 +3,6 @@ import 'package:debasmita_assignment/view/responsive_screens/desktop_screen.dart
 import 'package:debasmita_assignment/view/responsive_screens/mobile_screen.dart';
 import 'package:debasmita_assignment/view/responsive_screens/tablet_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,8 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
         primaryColor: Colors.black,
-        backgroundColor: Colors.black,
-          textTheme: GoogleFonts.robotoTextTheme(),
+        backgroundColor: Colors.black
       ),
       home: const Responsive(
         mobile: MobileScreen(),
