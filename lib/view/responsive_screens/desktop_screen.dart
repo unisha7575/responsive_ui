@@ -125,7 +125,7 @@ class _DesktopScreenState extends State<DesktopScreen> {
                               padding: const EdgeInsets.all(15),
                               child: Row(
                                 children: [
-                                  Text(allData['resume']),
+                                  Text(allData['searchName']),
                                   const Spacer(),
                                   const Icon(Icons.menu),
                                 ],
